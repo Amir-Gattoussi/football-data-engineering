@@ -32,3 +32,24 @@ def load_events(path: str | Path) -> list[dict[str, Any]]:
             }
         )
     return records
+
+
+def load_matches(path: str | Path) -> list[dict[str, Any]]:
+    with open(path, encoding="utf-8") as f:
+        raw = json.load(f)
+    records = []
+    for match in raw:
+        kick_off_time = match.get("kick_off")
+        date = match.get("match_date")
+        records.append(
+            {
+                "match_ID": match["match_id"],
+                "date": date,
+                "kick-off_time": kick_off_time,
+                "home_team_name": match["home_team"]["home_team_name"],
+                "away_team_name": match["away_team"]["away_team_name"],
+                "home_score": match["home_score"],
+                "away_score": match["away_score"],
+            }
+        )
+    return records

@@ -48,8 +48,8 @@ Explored with match 8658 (2018 World Cup final, France 4, Croatia 2). The 2018 W
 ### PR 3: `chore/pre-commit-cleanup`
 - Date:
 - Changes: renamed the lint hook from `ruff` to `ruff-check` (the old name is a legacy alias), and replaced the placeholder README.
-- Learned:
-- Confused me:
+- Learned: what ruff does exactly (had a rough (no pun intended) idea before)
+- Confused me: what the difference between `ruff` and `ruff-check` was.
 ### PR 4: `feature/event-details`
 - Date:
 - Changes: `end_x`, `end_y` and `xg` in the loader, two new fixture events (`evt-004` pass, `evt-005` shot), three new tests, count test now expects 5.
@@ -57,11 +57,11 @@ Explored with match 8658 (2018 World Cup final, France 4, Croatia 2). The 2018 W
 - Learned:
 - Confused me:
 ### PR 5: `feature/matches-loader`
-- Date:
-- Changes:
+- Date: 19/11
+- Changes: created a matches loader for matches metadata 
 - Real-data check (expect 64 matches, final is France 4, Croatia 2):
-- Learned:
-- Confused me:
+- Learned: In this example, we took the world cup matches, which is recent data, meaning all of the fields are always full. This may not be the case for older matches, which might be missing dates, kickoff times, referees, managers,...
+- Confused me:.
 ## Open questions
  
 - Shot end locations and `end_z`: add later as their own change?
