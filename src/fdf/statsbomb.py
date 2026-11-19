@@ -11,6 +11,8 @@ def load_events(path: str | Path) -> list[dict[str, Any]]:
     records = []
     for event in raw:
         location = event.get("location")
+        end_location = event.get("pass", {}).get("end_location")
+        xg = event.get("shot", {}).get("statsbomb_xg")
         records.append(
             {
                 "event_id": event["id"],
@@ -24,6 +26,9 @@ def load_events(path: str | Path) -> list[dict[str, Any]]:
                 "player": event.get("player", {}).get("name"),
                 "x": location[0] if location else None,
                 "y": location[1] if location else None,
+                "end_x": end_location[0] if end_location else None,
+                "end_y": end_location[1] if end_location else None,
+                "xg": xg,
             }
         )
     return records
